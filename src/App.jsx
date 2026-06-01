@@ -1181,16 +1181,38 @@ export default function App() {
       <FontLoader />
       <nav style={s.nav}>
         <span style={s.navLogo} onClick={() => setView("home")}>50 STEM Ideas ✦</span>
-        <div style={{ display:"flex", gap:8 }}>
-          {activeNavItems.map(item => (
-            <button
-              key={item.v}
-              style={{ ...s.navBtn, background:view===item.v?C.brown:C.card, color:view===item.v?"#FFF":C.brownMid }}
-              onClick={() => setView(item.v)}
-            >
-              {item.label}
-            </button>
-          ))}
+        <div style={s.navLinks}>
+          {activeNavItems.map(item => {
+            const active = view === item.v;
+
+            return (
+              <button
+                key={item.v}
+                onClick={() => setView(item.v)}
+                style={{
+                  ...s.navBtn,
+
+                  background: active
+                    ? `linear-gradient(135deg, ${C.primary}, ${C.secondary})`
+                    : "#FFFFFF",
+
+                  color: active
+                    ? "#FFFFFF"
+                    : C.text,
+
+                  border: active
+                    ? "none"
+                    : `1px solid ${C.border}`,
+
+                  boxShadow: active
+                    ? "0 6px 18px rgba(216,92,203,.18)"
+                    : "none",
+                }}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
       </nav>
 
