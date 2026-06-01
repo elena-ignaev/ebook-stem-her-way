@@ -486,7 +486,7 @@ const s = {
   },
 
   nav: {
-    background: "rgba(255,255,255,0.8)",
+    background: "rgba(255,255,255,0.92)",
     backdropFilter: "blur(12px)",
     borderBottom: `1px solid ${C.border}`,
     padding: "0 24px",
@@ -507,14 +507,34 @@ const s = {
     letterSpacing: "-0.03em",
   },
 
+  navLinks: {
+    display: "flex",
+    alignItems: "center",
+    gap: 24,
+  },
+
+  navLink: {
+    color: C.text,
+    fontSize: 14,
+    fontWeight: 600,
+    textDecoration: "none",
+    cursor: "pointer",
+    transition: "color .15s ease",
+  },
+
+  navLinkActive: {
+    color: C.secondary,
+    fontWeight: 700,
+  },
+
   navBtn: {
-    background: "#FFF",
+    background: "#FFFFFF",
     border: `1px solid ${C.border}`,
     borderRadius: 999,
     padding: "8px 16px",
     fontSize: 13,
     fontWeight: 600,
-    color: C.textSecondary,
+    color: C.text,
     cursor: "pointer",
     transition: "all .15s",
   },
