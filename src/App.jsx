@@ -9,17 +9,17 @@ const T = {
   border: "#E8DFF3",
 
   // Brand
-  primary: "#C85BCE",      // STEM Her Way pink-purple
-  primaryDark: "#A844B0",
+  primary: "#D85CCB",       // pink-purple
+  primaryDark: "#B84AC2",
   primaryLight: "#F7D9F6",
 
   // Secondary
-  secondary: "#6C63FF",    // periwinkle/indigo
-  secondaryDark: "#4D46D9",
+  secondary: "#7D73FF",     // lavender blue
+  secondaryDark: "#5F55E8",
   secondaryLight: "#ECEBFF",
 
   // Accent
-  accent: "#FF8FC7",       // blush pink
+  accent: "#FF9EC9",        // blush pink
   accentSoft: "#FFE5F2",
 
   // Text
@@ -37,11 +37,12 @@ const T = {
   danger: "#E86D88",
   dangerBg: "#FFF0F4",
 
-  p1: "#D85CCB", // pink-purple
-  p2: "#7D73FF", // lavender blue
-  p3: "#FF9EC9", // blush
-  p4: "#5FB9FF", // soft sky
-  p5: "#8A78F5", // violet
+  // Category colors
+  p1: "#D85CCB",
+  p2: "#7D73FF",
+  p3: "#FF9EC9",
+  p4: "#5FB9FF",
+  p5: "#8A78F5",
 
   p1bg: "#FFF0FD",
   p2bg: "#F3F2FF",
@@ -49,16 +50,20 @@ const T = {
   p4bg: "#F0F8FF",
   p5bg: "#F4F1FF",
 };
-const partColor = id => 
-  [T.p1, T.p2, T.p3, T.p4, T.p5][id-1] || T.primary;
-const partBg = id => 
-  [T.p1bg, T.p2bg, T.p3bg, T.p4bg, T.p5bg][id-1] || T.surface;
+
+const partColor = id =>
+  [T.p1, T.p2, T.p3, T.p4, T.p5][id - 1] || T.primary;
+
+const partBg = id =>
+  [T.p1bg, T.p2bg, T.p3bg, T.p4bg, T.p5bg][id - 1] || T.surface;
+
 const diffColor = d =>
   d === "Easy"
     ? ["#4DAA74", "#F0FAF4"]
     : d === "Medium"
     ? ["#D49A3A", "#FFF7EA"]
     : ["#E46A86", "#FFF1F5"];
+
     
 // ─── PART METADATA ───────────────────────────────────────────────────────────
 const PARTS = [
@@ -439,8 +444,9 @@ const store = {
       }
       const v = window.localStorage?.getItem(key);
       return v ? JSON.parse(v) : null;
+    } catch {
+      return null;
     }
-    catch { return null; }
   },
   async set(key, val) {
     try {
@@ -550,8 +556,7 @@ const s = {
     border: `1px solid ${C.border}`,
     borderRadius: 24,
     overflow: "hidden",
-    boxShadow:
-      "0 4px 20px rgba(125,115,255,.06)",
+    boxShadow: "0 4px 20px rgba(125,115,255,.06)",
   },
 
   h1: {
@@ -561,6 +566,7 @@ const s = {
     margin: "0 0 10px",
     letterSpacing: "-0.04em",
     color: C.text,
+    textAlign: "center",
   },
 
   h2: {
@@ -570,6 +576,7 @@ const s = {
     margin: "0 0 8px",
     letterSpacing: "-0.03em",
     color: C.text,
+    textAlign: "center",
   },
 
   h3: {
@@ -578,12 +585,14 @@ const s = {
     lineHeight: 1.3,
     margin: "0 0 6px",
     color: C.text,
+    textAlign: "center",
   },
 
   body: {
     fontSize: 15,
     lineHeight: 1.75,
     color: C.textSecondary,
+    textAlign: "center",
   },
 
   tag: {
@@ -619,8 +628,7 @@ const s = {
     fontSize: 14,
     fontWeight: 700,
     cursor: "pointer",
-    boxShadow:
-      "0 6px 18px rgba(216,92,203,.18)",
+    boxShadow: "0 6px 18px rgba(216,92,203,.18)",
     transition: "all .15s",
   }),
 
@@ -640,9 +648,7 @@ const s = {
     width: 24,
     height: 24,
     borderRadius: 8,
-    border: `2px solid ${
-      done ? color : C.border
-    }`,
+    border: `2px solid ${done ? color : C.border}`,
     background: done ? color : "#FFF",
     cursor: "pointer",
     flexShrink: 0,
@@ -666,6 +672,7 @@ const s = {
     fontFamily: "inherit",
     boxSizing: "border-box",
     outline: "none",
+    textAlign: "center",
   },
 };
 
