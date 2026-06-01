@@ -2,16 +2,64 @@ import { useState, useEffect, useRef } from "react";
 
 // ─── DESIGN TOKENS ───────────────────────────────────────────────────────────
 const T = {
-  cream: "#FAF8F4", white: "#FFFFFF", border: "#EAE0D5",
-  brown: "#2A1A0E", brownMid: "#6B4535", brownLight: "#A07060",
-  amber: "#C47A3C", amberDark: "#9E5F26",
-  p1: "#B85C52", p2: "#4A7D65", p3: "#A86E28", p4: "#3A6180", p5: "#3D6B3F",
-  p1bg: "#FDF2F1", p2bg: "#EEF7F2", p3bg: "#FBF3E8", p4bg: "#EAF0F6", p5bg: "#ECF5ED",
-};
-const partColor = id => [T.p1,T.p2,T.p3,T.p4,T.p5][id-1] || T.amber;
-const partBg = id => [T.p1bg,T.p2bg,T.p3bg,T.p4bg,T.p5bg][id-1] || T.cream;
-const diffColor = d => d==="Easy"?["#2D7A50","#E8F7EE"]:d==="Medium"?["#A06820","#FFF4E0"]:["#B04040","#FDEAEA"];
+  // Neutrals
+  white: "#FFFFFF",
+  cream: "#FCFAFF",
+  surface: "#F7F3FC",
+  border: "#E8DFF3",
 
+  // Brand
+  primary: "#C85BCE",      // STEM Her Way pink-purple
+  primaryDark: "#A844B0",
+  primaryLight: "#F7D9F6",
+
+  // Secondary
+  secondary: "#6C63FF",    // periwinkle/indigo
+  secondaryDark: "#4D46D9",
+  secondaryLight: "#ECEBFF",
+
+  // Accent
+  accent: "#FF8FC7",       // blush pink
+  accentSoft: "#FFE5F2",
+
+  // Text
+  text: "#2D2340",
+  textSecondary: "#6E6485",
+  textMuted: "#9E95B3",
+
+  // States
+  success: "#5DBE8A",
+  successBg: "#EEF9F3",
+
+  warning: "#E8A54D",
+  warningBg: "#FFF6E8",
+
+  danger: "#E86D88",
+  dangerBg: "#FFF0F4",
+
+  p1: "#D85CCB", // pink-purple
+  p2: "#7D73FF", // lavender blue
+  p3: "#FF9EC9", // blush
+  p4: "#5FB9FF", // soft sky
+  p5: "#8A78F5", // violet
+
+  p1bg: "#FFF0FD",
+  p2bg: "#F3F2FF",
+  p3bg: "#FFF3F8",
+  p4bg: "#F0F8FF",
+  p5bg: "#F4F1FF",
+};
+const partColor = id => 
+  [T.p1, T.p2, T.p3, T.p4, T.p5][id-1] || T.primary;
+const partBg = id => 
+  [T.p1bg, T.p2bg, T.p3bg, T.p4bg, T.p5bg][id-1] || T.surface;
+const diffColor = d =>
+  d === "Easy"
+    ? ["#4DAA74", "#F0FAF4"]
+    : d === "Medium"
+    ? ["#D49A3A", "#FFF7EA"]
+    : ["#E46A86", "#FFF1F5"];
+    
 // ─── PART METADATA ───────────────────────────────────────────────────────────
 const PARTS = [
   { id:1, title:"Science at Home",           sub:"Kitchen chemistry & everyday physics",       color:partColor(1), light:partBg(1), icon:"⚗️" },
