@@ -453,35 +453,200 @@ const store = {
 
 // ─── TOKEN ALIASES ────────────────────────────────────────────────────────────
 const C = {
-  bg: T.cream, card: T.white, border: T.border,
-  brown: T.brown, brownMid: T.brownMid, brownLight: T.brownLight,
-  amber: T.amber, amberHover: T.amberDark,
-  sage: T.p2, coral: T.p1, blue: T.p4, green: T.p5,
-  tag: "#F3E8DC", tagText: T.brownMid,
+  bg: "#FCFAFF",
+  surface: "#F7F3FC",
+  card: "#FFFFFF",
+
+  border: "#E8DFF3",
+
+  text: "#2D2340",
+  textSecondary: "#6E6485",
+  textMuted: "#9E95B3",
+
+  primary: "#D85CCB",
+  primaryDark: "#B84AC2",
+
+  secondary: "#7D73FF",
+  secondaryDark: "#5F55E8",
+
+  accent: "#FF9EC9",
+
+  tag: "#F4F1FF",
+  tagText: "#7D73FF",
 };
 
 // ─── SHARED STYLES ────────────────────────────────────────────────────────────
 const s = {
-  app: { fontFamily:"'DM Sans',system-ui,sans-serif", background:C.bg, minHeight:"100vh", color:C.brown },
-  nav: { background:C.card, borderBottom:`1px solid ${C.border}`, padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", height:56, position:"sticky", top:0, zIndex:100 },
-  navLogo: { fontFamily:"'Lora',Georgia,serif", fontSize:18, fontWeight:600, color:C.brown, cursor:"pointer", letterSpacing:0 },
-  navBtn: { background:"none", border:`1px solid ${C.border}`, borderRadius:20, padding:"6px 14px", fontSize:13, color:C.brownMid, cursor:"pointer", transition:"all .15s" },
-  main: { maxWidth:780, margin:"0 auto", padding:"32px 20px 80px" },
-  card: { background:C.card, border:`1px solid ${C.border}`, borderRadius:8, overflow:"hidden" },
-  h1: { fontFamily:"'Lora',Georgia,serif", fontSize:32, fontWeight:600, lineHeight:1.2, margin:"0 0 8px", letterSpacing:0 },
-  h2: { fontFamily:"'Lora',Georgia,serif", fontSize:22, fontWeight:600, lineHeight:1.3, margin:"0 0 6px", letterSpacing:0 },
-  h3: { fontFamily:"'Lora',Georgia,serif", fontSize:17, fontWeight:600, lineHeight:1.3, margin:"0 0 4px" },
-  body: { fontSize:15, lineHeight:1.7, color:C.brownMid },
-  tag: { display:"inline-block", background:C.tag, color:C.tagText, fontSize:12, fontWeight:500, padding:"3px 10px", borderRadius:20, letterSpacing:"0.2px" },
-  pill: (color) => ({ display:"inline-block", background:color+"22", color, fontSize:12, fontWeight:500, padding:"3px 10px", borderRadius:20 }),
-  btn: (color=C.amber) => ({ background:color, color:"#FFF", border:"none", borderRadius:8, padding:"10px 20px", fontSize:14, fontWeight:500, cursor:"pointer", transition:"opacity .15s" }),
-  outlineBtn: { background:"none", border:`1px solid ${C.border}`, borderRadius:8, padding:"9px 18px", fontSize:14, color:C.brownMid, cursor:"pointer", transition:"all .15s" },
-  check: (done,color) => ({
-    width:22, height:22, borderRadius:6, border:`2px solid ${done?color:C.border}`,
-    background:done?color:"transparent", cursor:"pointer", flexShrink:0,
-    display:"flex", alignItems:"center", justifyContent:"center", transition:"all .2s",
+  app: {
+    fontFamily: "'DM Sans', system-ui, sans-serif",
+    background:
+      "linear-gradient(180deg,#FCFAFF 0%,#F8F1FC 45%,#F4EEFF 100%)",
+    minHeight: "100vh",
+    color: C.text,
+  },
+
+  nav: {
+    background: "rgba(255,255,255,0.8)",
+    backdropFilter: "blur(12px)",
+    borderBottom: `1px solid ${C.border}`,
+    padding: "0 24px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: 64,
+    position: "sticky",
+    top: 0,
+    zIndex: 100,
+  },
+
+  navLogo: {
+    fontSize: 20,
+    fontWeight: 800,
+    color: C.secondary,
+    cursor: "pointer",
+    letterSpacing: "-0.03em",
+  },
+
+  navBtn: {
+    background: "#FFF",
+    border: `1px solid ${C.border}`,
+    borderRadius: 999,
+    padding: "8px 16px",
+    fontSize: 13,
+    fontWeight: 600,
+    color: C.textSecondary,
+    cursor: "pointer",
+    transition: "all .15s",
+  },
+
+  main: {
+    maxWidth: 780,
+    margin: "0 auto",
+    padding: "40px 24px 100px",
+  },
+
+  card: {
+    background: C.card,
+    border: `1px solid ${C.border}`,
+    borderRadius: 24,
+    overflow: "hidden",
+    boxShadow:
+      "0 4px 20px rgba(125,115,255,.06)",
+  },
+
+  h1: {
+    fontSize: 36,
+    fontWeight: 800,
+    lineHeight: 1.1,
+    margin: "0 0 10px",
+    letterSpacing: "-0.04em",
+    color: C.text,
+  },
+
+  h2: {
+    fontSize: 24,
+    fontWeight: 700,
+    lineHeight: 1.2,
+    margin: "0 0 8px",
+    letterSpacing: "-0.03em",
+    color: C.text,
+  },
+
+  h3: {
+    fontSize: 18,
+    fontWeight: 700,
+    lineHeight: 1.3,
+    margin: "0 0 6px",
+    color: C.text,
+  },
+
+  body: {
+    fontSize: 15,
+    lineHeight: 1.75,
+    color: C.textSecondary,
+  },
+
+  tag: {
+    display: "inline-block",
+    background: C.tag,
+    color: C.tagText,
+    fontSize: 12,
+    fontWeight: 700,
+    padding: "5px 12px",
+    borderRadius: 999,
+    letterSpacing: "0.02em",
+  },
+
+  pill: (color) => ({
+    display: "inline-block",
+    background: `${color}15`,
+    color,
+    fontSize: 12,
+    fontWeight: 700,
+    padding: "5px 12px",
+    borderRadius: 999,
   }),
-  textarea: { width:"100%", background:C.bg, border:`1px solid ${C.border}`, borderRadius:8, padding:14, fontSize:14, lineHeight:1.7, color:C.brown, resize:"vertical", minHeight:120, fontFamily:"inherit", boxSizing:"border-box", outline:"none" },
+
+  btn: (color = C.primary) => ({
+    background:
+      color === C.primary
+        ? `linear-gradient(135deg, ${C.primary}, ${C.secondary})`
+        : color,
+    color: "#FFF",
+    border: "none",
+    borderRadius: 16,
+    padding: "12px 22px",
+    fontSize: 14,
+    fontWeight: 700,
+    cursor: "pointer",
+    boxShadow:
+      "0 6px 18px rgba(216,92,203,.18)",
+    transition: "all .15s",
+  }),
+
+  outlineBtn: {
+    background: "#FFF",
+    border: `1px solid ${C.border}`,
+    borderRadius: 16,
+    padding: "11px 20px",
+    fontSize: 14,
+    fontWeight: 600,
+    color: C.textSecondary,
+    cursor: "pointer",
+    transition: "all .15s",
+  },
+
+  check: (done, color) => ({
+    width: 24,
+    height: 24,
+    borderRadius: 8,
+    border: `2px solid ${
+      done ? color : C.border
+    }`,
+    background: done ? color : "#FFF",
+    cursor: "pointer",
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all .2s",
+  }),
+
+  textarea: {
+    width: "100%",
+    background: C.surface,
+    border: `1px solid ${C.border}`,
+    borderRadius: 20,
+    padding: 16,
+    fontSize: 14,
+    lineHeight: 1.7,
+    color: C.text,
+    resize: "vertical",
+    minHeight: 120,
+    fontFamily: "inherit",
+    boxSizing: "border-box",
+    outline: "none",
+  },
 };
 
 // ─── FONT INJECTOR ─────────────────────────────────────────────────────────────
