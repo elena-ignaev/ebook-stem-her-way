@@ -1,16 +1,117 @@
-# React + Vite
+# 50 STEM Ideas for Girls
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive STEM ebook companion built with React and Vite.
 
-Currently, two official plugins are available:
+The website includes a PDF ebook reader, experiment checklists, progress tracking, and a personal notes area for learners to record observations and ideas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Site
 
-## React Compiler
+After GitHub Pages deployment, the site will be available at:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```text
+https://YOUR_USERNAME.github.io/ebook-stem-her-way/
+```
 
-## Expanding the ESLint configuration
+Replace `YOUR_USERNAME` with your GitHub username.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- PDF ebook viewer
+- 50 STEM experiment ideas
+- Step-by-step experiment checklists
+- Progress tracking by part
+- Notes and observation journal
+- Browser-based saving with `localStorage`
+- GitHub Pages deployment workflow
+
+## Project Structure
+
+```text
+ebook-stem-her-way/
+├── public/
+│   └── ebook/
+│       ├── ebook-full.pdf
+│       ├── ebook_part1.md
+│       ├── ebook_part2.md
+│       ├── ebook_part3.md
+│       └── ebook_part4.md
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the local development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## GitHub Pages Deployment
+
+This project is configured for GitHub Pages using GitHub Actions.
+
+The Vite base path is set in `vite.config.js`:
+
+```js
+base: '/ebook-stem-her-way/'
+```
+
+If your GitHub repository has a different name, update that value to match:
+
+```js
+base: '/YOUR_REPOSITORY_NAME/'
+```
+
+To deploy:
+
+1. Push this project to a GitHub repository.
+2. Go to the repository settings.
+3. Open **Pages**.
+4. Under **Build and deployment**, choose **GitHub Actions**.
+5. Push to the `main` branch.
+6. Wait for the deploy workflow to finish.
+
+## Saving Notes and Progress
+
+Notes and progress are saved in the user's browser with `localStorage`.
+
+This means:
+
+- Data stays on the same browser and device.
+- Data is not uploaded to GitHub.
+- Data is not synced across devices.
+- Clearing browser data may delete saved notes and progress.
+
+## Credits
+
+Created by Khánh Vy.
+
+Built with React, Vite, and GitHub Pages.
